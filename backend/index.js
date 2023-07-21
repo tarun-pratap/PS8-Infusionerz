@@ -48,20 +48,57 @@ app.post('/register', async (req,res) => {
 })
 
 app.post('/policy-form', async (req,res) => {
-  const {token} = req.cookies;    
-  const verifyUser = jwt.verify(token, process.env.SECRET_KEY);
-  const {name, phone, address, itemName, totalAmount, amountPaid, amountToBePaid, dateOfPayment, dateOfPurchase, paymentHistory, amountHistory, addPhoto} = req.body;
+  // const {token} = req.cookies;    
+  // const verifyUser = jwt.verify(token, process.env.SECRET_KEY);
+  const {fullname,
+    phone,
+    dob,
+    email,
+    pincode,
+    address,
+    income,
+    occupation,
+    education,
+    genderValue,
+    nriSwitchValue,
+    smokerSwitchValue,
+    emSwitchValue,
+    bloodSwitchValue, bmi,insulinSwitchValue, hospitalswitchValue, diabeteSwitchValue } = req.body;
 
-  console.log(verifyUser);
+  // console.log(verifyUser);
 
-  const initialAmount = totalAmount;  
-
-  const customerDoc = await CustomerModel.create({
-    owner:verifyUser.id,
-    name, phone, address, itemName, totalAmount, amountPaid, amountToBePaid, dateOfPayment, dateOfPurchase, paymentHistory, amountHistory, initialAmount, addPhoto
+  const policyDoc = await PolicyModel.create({
+    // owner:verifyUser.id,
+    fullname,
+            phone,
+            dob,
+            email,
+            pincode,
+            address,
+            income,
+            occupation,
+            education,
+            genderValue,
+            nriSwitchValue,
+            smokerSwitchValue,
+            emSwitchValue,
+            bloodSwitchValue, bmi,insulinSwitchValue, hospitalswitchValue, diabeteSwitchValue           
   })
 
-  res.json(customerDoc);
+  // const formData = req.body; 
+  // // console.log(formData);
+
+  // const policyDoc = await PolicyModel.create({
+  //     // owner:verifyUser.id,
+  //     email: formData.email,                          
+  //             pincode: formData.pincode,
+  //             address: formData.address,
+  //             income: formData.income,
+  //             occupation: formData.occupation,                     
+  //   })
+
+  res.send("Record Added")
+  
 })
 
 // app.post('/get-all-records', async (req,res) => { 
