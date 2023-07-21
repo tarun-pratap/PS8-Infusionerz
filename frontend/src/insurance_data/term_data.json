@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "img": "term1",
+        "desc": "Smart Protection Goal"
+    },
+    {
+        "id": 2,
+        "img": "term2",
+        "desc": "Diabetic Term Plan Sub 8 HbA1c"
+    },
+    {
+        "id": 3,
+        "img": "term3",
+        "desc": "iSecure"
+    },
+    {
+        "id": 4,
+        "img": "term4",
+        "desc": "iSecure More"
+    },
+    {
+        "id": 5,
+        "img": "term5",
+        "desc": "iSecure Loan"
+    },
+    {
+        "id": 6,
+        "img": "term6",
+        "desc": "Life Secure"
+    },
+    {
+        "id": 8,
+        "img": "term8",
+        "desc": "eTouch"
+    },
+    {
+        "id": 9,
+        "img": "term9",
+        "desc": "Lifestyle Secure"
+    },
+    {
+        "id": 10,
+        "img": "term10",
+        "desc": "Saral Jeevan Bima"
+    }
+]

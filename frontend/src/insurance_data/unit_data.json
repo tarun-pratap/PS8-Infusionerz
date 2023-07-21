@@ -1,0 +1,27 @@
+[
+    {
+        "id": 11,
+        "img": "unit1",
+        "desc": "Smart Wealth Goal"
+    },
+    {
+        "id": 12,
+        "img": "unit2",
+        "desc": "Goal Assure"
+    },
+    {
+        "id": 13,
+        "img": "unit3",
+        "desc": "Longlife Goal"
+    },
+    {
+        "id": 14,
+        "img": "unit4",
+        "desc": "Future Gain"
+    },
+    {
+        "id": 15,
+        "img": "unit5",
+        "desc": "Future Wealth Gain"
+    }
+]
