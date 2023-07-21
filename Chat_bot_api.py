@@ -58,3 +58,16 @@ def ask_question(policy_ai_bot, question):
     result = policy_ai_bot({"question": question})
     answer = result["answer"]
     return answer
+
+from fastapi import FastAPI, Header
+
+app = FastAPI()
+
+@app.get("/bajaj/ai_bot/")
+def get_policy_response(policy_name: str = Header(...), question: str = Header(...)):
+    print(policy_name, question)
+    if policy_name in policy_ai_bots:
+        policy_ai_bot = policy_ai_bots[policy_name]
+        return ask_question(policy_ai_bot, question)
+    else:
+        return "Invalid policy name"
