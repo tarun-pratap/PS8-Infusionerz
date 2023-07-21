@@ -56,11 +56,59 @@ const Ind_Policy_Page = () => {
                         <div></div>
                     </div>
 
-                    <div className='flex justify-center w-full items-center'><Bot /></div>
+                    {/* <div className='flex justify-center w-full items-center'><Bot /></div> */}
 
                     {/* Navbar */}
 
-                    <div className='mt-16 text-[1.7rem]'>                       
+                    <div className='flex justify-evenly w-full'>
+                    <div>
+                        <div className='mt-20 text-[1.7rem]'>                       
+                            <ul className='flex justify-evenly gap-x-12'>
+                                <li><i class="bi bi-caret-left-fill text-[#f89c30]"></i></li>
+                                <li><button id='1' className='hover:text-[#f89c30] hover:underline' onClick={(e) => handleComponentChange(e.target.id)}>Overview</button></li>
+                                <li><button id='2' className='hover:text-[#f89c30] hover:underline' onClick={(e) => handleComponentChange(e.target.id)}>Key Advantage</button></li>
+                                <li><button id='3' className='hover:text-[#f89c30] hover:underline' onClick={(e) => handleComponentChange(e.target.id)}>How this works</button></li>
+                                <li><button id='4' className='hover:text-[#f89c30] hover:underline' onClick={(e) => handleComponentChange(e.target.id)}>Eligibility</button></li>
+                                <li><button id='5' className='hover:text-[#f89c30] hover:underline' onClick={(e) => handleComponentChange(e.target.id)}>Downloads</button></li>
+                                <li><i class="bi bi-caret-right-fill text-[#f89c30]"></i></li>
+                            </ul>                    
+                        </div>
+                        {idSelector === '1' && <>
+                        {/* <div className='flex justify-center w-full items-center mt-16'> */}
+                            <Overview />
+                        {/* </div> */}
+                    </>}
+
+                    {idSelector === '2' && <>
+                        {/* <div className='flex justify-center w-full items-center mt-16'> */}
+                            <KeyAdvantage />
+                        {/* </div> */}
+                    </>}
+
+                    {idSelector === '3' && <>
+                        {/* <div className='flex justify-center w-full items-center mt-16'> */}
+                            <HowThisWorks />
+                        {/* </div> */}
+                    </>}
+
+                    {idSelector === '4' && <>
+                        {/* <div className='flex justify-center w-full items-center mt-16'> */}
+                            <Eligibility />
+                        {/* </div> */}
+                    </>}
+
+                    {idSelector === '5' && <>
+                        {/* <div className='flex justify-center w-full items-center mt-16'> */}
+                            <Downloads />
+                        {/* </div> */}
+                        </>
+                    }
+                    </div>
+                        <div><Bot /></div>
+                    </div>
+
+            
+                    {/* <div className='mt-20 text-[1.7rem]'>                       
                             <ul className='flex justify-evenly gap-x-12'>
                                 <li><i class="bi bi-caret-left-fill text-[#f89c30]"></i></li>
                                 <li><button id='1' className='hover:text-[#f89c30] hover:underline' onClick={(e) => handleComponentChange(e.target.id)}>Overview</button></li>
@@ -100,7 +148,7 @@ const Ind_Policy_Page = () => {
                         <div className='flex justify-center w-full items-center mt-16'>
                             <Downloads />
                         </div>
-                    </>}
+                    </>} */}
 
                     <div className='flex flex-col justify-start w-full px-[9.5rem]'>
                         <div className='text-[2.4rem] font-semibold'> <span className='text-[#f89c30]'>Documents you'll need</span> <span className='text-gray-400'>before investing</span></div>
