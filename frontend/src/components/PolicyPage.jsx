@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import { Pagination, Mousewheel, Autoplay } from 'swiper/modules';
 import { Link } from 'react-router-dom'
 import instagram from '../images/policy/instagram.jpeg'
 import facebook from '../images/logos/facebook.png'
@@ -15,14 +15,14 @@ const PolicyPage = () => {
   return (
     <>
         <section className='h-auto w-full bg-primary'>
-            <div className='flex px-28 py-24'>
-                <div className='w-3/4'>
+            <div className='flex'>
+                <div className='w-3/4 px-20 py-24'>
                 <div className='text-[4rem] font-semibold'>
                         <div className='text-white'>Get Covered, Get Confident</div>
                         <div> <span className='text-secondary'>Your Path to Insurance <br /> Security</span></div>
                     </div>
                     <div className='text-white mt-7 text-[1.45rem] w-11/12 text-justify'>Explore our user-friendly platform designed for easy browsing of insurance policies. Discover a comprehensive range of coverage options tailored to your unique needs. Whether it's health, home, auto, or more, we provide a diverse selection of policies. Gain peace of mind by comparing features, benefits, and pricing. With our intuitive interface and informative policy details, you can make informed decisions. Start browsing now and find the perfect insurance policy to protect what matters most to you</div>
-                    <div className='flex flex-col gap-y-5 mt-7'>
+                    <div className='flex flex-col gap-y-5 mt-10'>
                         <Link to={'/policy-form'} className='rounded-full text-3xl bg-secondary text-white font-semibold w-11/12 hover:bg-secondary h-16 flex justify-center items-center'>Enter your details</Link>                                              
                     </div>
                     <div className='mt-6 flex gap-x-5 justify-center w-11/12'>
@@ -34,8 +34,27 @@ const PolicyPage = () => {
                         <button className='rounded-full text-[2rem] text-[#f89c30] underline font-semibold w-11/12 hover:text-[#ef8711] h-8 flex justify-center items-center'>Browse all policies</button>                                              
                     </div>
                 </div>
-                <div>
-                
+                <div className='1/4 w-[90rem] h-[50rem] py-24 mt-20 flex justify-center'>
+                <Swiper
+                loop={true}
+        mousewheel={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        direction={'vertical'}
+        pagination={{
+          clickable: true,
+        }}        
+        modules={[Mousewheel, Pagination, Autoplay]}
+        className="mySwiper"
+      >
+        <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>Slide 5</SwiperSlide>        
+      </Swiper>
                 </div>
             </div>
         </section>
