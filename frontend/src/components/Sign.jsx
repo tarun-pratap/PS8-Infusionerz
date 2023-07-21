@@ -52,7 +52,7 @@ const Sign = () => {
                                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className='border-2' />
                             </div>
                         </div>
-                        <div className='mt-5 font-semibold flex justify-center items-center h-[1.5rem] rounded-lg text-white bg-[#f58120]'><button onClick={userRegisterData}>SIGN UP</button></div>
+                        <div className='mt-5 font-semibold border-[#f58120] border-2 flex justify-center items-center h-[2rem] rounded-lg text-white bg-[#f58120] cursor-pointer hover:bg-white hover:text-[#f58120] transition-all duration-300'><button onClick={userRegisterData}>SIGN UP</button></div>
                     </form>
                 </div>
             </div>
