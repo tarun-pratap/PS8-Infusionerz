@@ -4,6 +4,8 @@ import openai
 
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
+from langchain.chains import ConversationalRetrievalChain
+from langchain.memory import ConversationBufferMemory
 
 from langchain.vectorstores import Chroma
 
@@ -36,3 +38,19 @@ for policy_name, embeddings_directory in policy_embeddings_directories.items():
     )
     policy_retriever = policy_db.as_retriever(search_type="similarity", search_kwargs={"k": 3})
     policy_retrievers[policy_name] = policy_retriever
+    
+# Initialize the conversational AI bots for each policy
+policy_ai_bots = {}
+chat_memories={}
+for policy_name, policy_retriever in policy_retrievers.items():
+    memory = ConversationBufferMemory(
+        memory_key=policy_name,
+        return_messages=True
+    )
+    chat_memories[policy_name]=memory
+    policy_ai_bot = ConversationalRetrievalChain.from_llm(
+        chatllm,
+        retriever=policy_retriever,
+        memory=chat_memories[policy_name]
+    )
+    policy_ai_bots[policy_name] = policy_ai_bot
