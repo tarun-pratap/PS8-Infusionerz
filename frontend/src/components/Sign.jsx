@@ -31,28 +31,28 @@ const Sign = () => {
                 <div className='text-[#f58120] font-semibold text-[1rem]'>Tagline</div>
                 <div className='mt-10 w-full flex justify-center items-center'><hr className='h-[0.2rem] w-11/12 bg-black bg-opacity-40' /></div>
                 <div className='bg-white w-11/12 h-[40vh] rounded-lg mt-20 flex flex-col items-center'>
-                    <form onSubmit={userRegisterData}>
-                        <div className='grid grid-cols-2'>
+                    <form onSubmit={userRegisterData} className='mt-5'>
+                        <div className='grid grid-cols-2 gap-x-10'>
                             <div>
                                 <label>Full Name</label> <br />
-                                <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                                <input type="text" value={name} onChange={(e) => setName(e.target.value)} className='border-2' />
                             </div>
                             <div>
                                 <label>Mobile Number</label> <br />
-                                <input type="number" value={mobile} onChange={(e) => setMobile(e.target.value)} />
+                                <input type="number" value={mobile} onChange={(e) => setMobile(e.target.value)} className='border-2' />
                             </div>
                         </div>
-                        <div className='grid grid-cols-2'>
+                        <div className='grid grid-cols-2 mt-5 gap-x-10'>
                             <div>
                                 <label>Email Address</label> <br />
-                                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className='border-2' />
                             </div>
                             <div>
                                 <label>Password</label> <br />
-                                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className='border-2' />
                             </div>
                         </div>
-                        <div className='mt-5'><button onClick={userRegisterData}>SIGN UP</button></div>
+                        <div className='mt-5 font-semibold flex justify-center items-center h-[1.5rem] rounded-lg text-white bg-[#f58120]'><button onClick={userRegisterData}>SIGN UP</button></div>
                     </form>
                 </div>
             </div>
