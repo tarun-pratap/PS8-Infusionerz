@@ -8,6 +8,8 @@ module.exports = {
       colors: {  
         primary: '#0072BC',
         secondary: '#f58120',
+        axis_primary: '#97144d',
+        axis_secondary: 'fff'
       },
     },
   },

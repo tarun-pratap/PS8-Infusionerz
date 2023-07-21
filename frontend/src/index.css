@@ -22,3 +22,7 @@ code {
     --color-secondary: 245 129 32; /* Yellow */
   }
 }
+
+html {
+  font-size: 62.5%;
+}
