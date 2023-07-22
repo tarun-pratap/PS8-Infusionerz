@@ -61,7 +61,17 @@ def ask_question(policy_ai_bot, question):
 
 from fastapi import FastAPI, Header
 
+from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.get("/bajaj/ai_bot/")
 def get_policy_response(policy_name: str = Header(...), question: str = Header(...)):
