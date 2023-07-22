@@ -1,4 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination, Autoplay } from 'swiper/modules';
 import r1 from '../images/retirement/r1.jpg'
 import r2 from '../images/retirement/r2.jpg'
 import r3 from '../images/retirement/r3.jpg'
@@ -7,6 +11,11 @@ import Item from './Item'
 import data from '../insurance_data/term_data.json'
 import unit_data from '../insurance_data/unit_data.json'
 import { Link, useNavigate } from 'react-router-dom'
+import f1 from '../images/slideshow/1.png'
+import f2 from '../images/slideshow/2.png'
+import f3 from '../images/slideshow/3.png'
+import f4 from '../images/slideshow/4.png'
+import f5 from '../images/slideshow/5.png'
 
 const Hero = () => {
 
@@ -59,12 +68,21 @@ const Hero = () => {
                     </div>
                     <div className='flex flex-col gap-y-5 mt-10'>
                         <div><Link to={'/new-user-register'} className='rounded-full text-3xl bg-[#f89c30] text-white font-semibold w-[33rem] hover:bg-[#ef8711] h-16 flex justify-center items-center'>New User</Link></div>
-                        <div><button className='rounded-full text-3xl bg-[#f89c30] text-white font-semibold w-[33rem] hover:bg-[#ef8711] h-16 flex justify-center items-center'>Existing User</button></div>
+                        <div><Link to={'/login-user'} className='rounded-full text-3xl bg-[#f89c30] text-white font-semibold w-[33rem] hover:bg-[#ef8711] h-16 flex justify-center items-center'>Existing User</Link></div>
                     </div>
                 </div>
                 
                 <div className='w-1/2'>
-                            
+                <Swiper pagination={true} autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }} modules={[Pagination, Autoplay]} loop={true} className="mySwiper">
+        <SwiperSlide><img src={f1} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={f2} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={f3} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={f4} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={f5} alt="" /></SwiperSlide>     
+      </Swiper>  
                 </div>              
             </div>
 

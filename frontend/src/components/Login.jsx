@@ -1,47 +1,113 @@
-import React, { useState } from 'react'
+import { Alert, AlertIcon, AlertTitle } from '@chakra-ui/react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 const Login = () => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [show, setShow] = useState(true);
+  const [dialogBox, showDialogBox] = useState(false);
 
-  const userLoginData = (e) => {
-    e.preventDefault()
-    if(email !== "" && password !== ""){
-        alert('User logged in')
-    }
+  const navigate = useNavigate()
 
-    else {
-        alert("Not logged")
+  // useEffect(() => {
+  //   async function getData() {
+  //     const tokenDoc = await axios.get('/login-token');   
+  //     if(tokenDoc.data === ""){
+  //       setShow(true);        
+  //     }
+
+  //     else {
+  //       alert("not");   
+  //     }
+  //     }          
+
+  //   getData();   
+  // }, []);
+
+  async function loginform(e) {
+    e.preventDefault();
+
+    if (email !== "" && password !== "") {
+      await axios.post("/user-login", { email, password });      
+      showDialogBox(false);
+      navigate('/policy-predict-page');
+    } else {
+      showDialogBox(true);
     }
-  }
+  } 
 
   return (
     <>
-        <section className='h-[200vh] w-full bg-primary'>
-          <div className='h-[140vh] flex flex-col justify-center items-center w-full'>
-            <div className='h-[120vh] w-11/12 bg-slate-300 rounded-lg flex items-center flex-col'>
-                <div className='text-primary font-semibold text-[2.5rem] mt-10'>WELCOME BACK USER</div>
-                <div className='text-secondary font-semibold text-[1rem]'>Tagline</div>
-                <div className='mt-10 w-full flex justify-center items-center'><hr className='h-[0.2rem] w-11/12 bg-black bg-opacity-40' /></div>
-                <div className='bg-white w-11/12 h-[40vh] rounded-lg mt-20 flex flex-col items-center'>
-                    <form onSubmit={userLoginData} className='mt-5'>                        
-                        <div className='grid grid-cols-2 mt-5 gap-x-10'>
-                            <div>
-                                <label>Email Address</label> <br />
-                                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className='border-2' />
-                            </div>
-                            <div>
-                                <label>Password</label> <br />
-                                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className='border-2' />
-                            </div>
+    {show && <>
+      <section className='h-[130vh] w-full bg-[#0072BC]'>
+            <div className='flex justify-center items-center h-[130vh]'>
+                <div className='bg-slate-200 w-11/12 h-[105vh] rounded-[2rem] flex items-center flex-col'>
+                    <div className='font-semibold text-[3.7rem] mt-10 text-[#0072BC]'>WELCOME BACK USER</div>
+                    <div className='text-[1.7rem] text-[#f89c30] font-semibold'>Enter the Portal, Empowering Your Insurance Journey</div>
+                    <div><hr className='w-[91rem] h-[0.2rem] rounded-3xl bg-zinc-600 mt-16 opacity-80' /></div>
+
+                    {/* Form Div */}                   
+
+                    <div className='bg-white w-3/4 h-[56vh] rounded-[2rem] mt-20 flex flex-col items-center'>
+                        <form className='mt-16' onSubmit={loginform}>                            
+                            <div className='grid grid-cols-2 gap-12 mt-2'>
+                                <div>
+                                    <label>Email Address</label> <br />
+                                    <input type="email" placeholder='Enter your email address...' className='w-[20rem] mt-[0.4rem] rounded-[0.5rem] pl-[0.7rem] p-[0.2rem] border-[1.4px] border-black border-opacity-30 outline-[#0072BC] h-10 text-gray-500' value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    {email === "" && (
+                                        <div className="mt-2 text-sm text-red-500">
+                                            ** Email Address can't be blank
+                                        </div>
+                                    )}
+                                </div>  
+                                <div>
+                                    <label>Password</label> <br />
+                                    <input type="password" placeholder='Enter a password...' className='w-[20rem] mt-[0.4rem] rounded-[0.5rem] pl-[0.7rem] p-[0.2rem] border-[1.4px] border-black border-opacity-30 outline-[#0072BC] h-10 text-gray-500' value={password} onChange={(e) => setPassword(e.target.value)} />
+                                    {password === "" && (
+                                        <div className="mt-2 text-sm text-red-500">
+                                            ** Password can't be blank
+                                        </div>
+                                    )}
+                                </div>
+                            </div>                                                    
+
+                        <div className='mt-5 flex justify-end w-full text-[1.1rem]'>
+                            <a className='cursor-pointer underline hover:text-[#0072BC] hover:font-semibold'><i class="bi bi-question-circle-fill mr-1"></i>Forgot Password</a>
                         </div>
-                        <div className='mt-5 font-semibold border-secondary border-2 flex justify-center items-center h-[2rem] rounded-lg text-white bg-secondary cursor-pointer hover:bg-white hover:text-secondary transition-all duration-300'><button onClick={userLoginData}>LOG IN</button></div>
-                    </form>
+
+                        <div className='font-semibold'>
+                            <div><button className='w-[43rem] mt-[2rem] h-[3.4rem] rounded-[0.8rem] text-[1.4rem] bg-[#f89c30] hover:bg-white hover:text-[#f89c30]
+                            border-2 border-[#f89c30] text-white transition-all duration-300 hover:shadow-2xl hover:shadow-[#f89c30] outline-none' onClick={loginform}>LOGIN</button></div>                            
+                        </div>                                           
+
+                        <div className='mt-6 flex gap-x-5 justify-center'>
+                            <div className='flex justify-center items-center'><hr className='w-[11rem] h-[0.2rem] rounded-3xl bg-zinc-600 opacity-80' /></div>
+                            <span className='font-semibold'>Or continue with</span>
+                            <div className='flex justify-center items-center'><hr className='w-[11rem] h-[0.2rem] rounded-3xl bg-zinc-600 opacity-80' /></div>
+                        </div>
+
+                        {/* <div className='flex gap-x-8 mt-5 justify-center'>
+                            <div><img src={google} alt="google" className='max-w-[2rem] cursor-pointer' /></div>
+                            <div><img src={facebook} alt="facebook" className='max-w-[2rem] cursor-pointer' /></div>
+                        </div>                                                */}
+
+                        <div className='font-semibold mt-6 text-[1.2rem] flex justify-center'>Don't have an account? <Link to={'/new-user-register'} className='h-[3rem] rounded-[0.5rem] text-[#0072BC] hover:bg-white hover:text-[#216693] transition-all duration-300 underline font-bold ml-2'>SIGN UP</Link></div>
+                        </form> 
+                    </div>                    
+
+                    {dialogBox && (
+                         <> <ToastContainer /> </>
+                    )}
+
                 </div>
             </div>
-          </div>
         </section>
+    </>}    
+        
     </>
   )
 }

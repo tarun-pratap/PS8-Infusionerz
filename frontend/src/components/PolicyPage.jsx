@@ -10,6 +10,11 @@ import linkedin from '../images/policy/linkedin.png'
 import yt from '../images/policy/yt.jpg'
 import download from '../images/policy/download.jpg'
 import twitter from '../images/policy/twitter.png'
+import f1 from '../images/slideshow/1.png'
+import f2 from '../images/slideshow/2.png'
+import f3 from '../images/slideshow/3.png'
+import f4 from '../images/slideshow/4.png'
+import f5 from '../images/slideshow/5.png'
 
 const PolicyPage = () => {
   return (
@@ -49,11 +54,11 @@ const PolicyPage = () => {
         modules={[Mousewheel, Pagination, Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>        
+        <SwiperSlide><img src={f1} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={f2} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={f3} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={f4} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={f5} alt="" /></SwiperSlide>       
       </Swiper>
                 </div>
             </div>
