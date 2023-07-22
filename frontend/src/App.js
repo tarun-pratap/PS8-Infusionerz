@@ -10,6 +10,12 @@ import KeyAdvantage from "./components/Policy_Components/KeyAdvantage";
 import HowThisWorks from "./components/Policy_Components/HowThisWorks";
 import Eligibility from "./components/Policy_Components/Eligibility";
 import Downloads from "./components/Policy_Components/Downloads";
+import New from "./components/New";
+import axios from 'axios'
+import Pp from './components/Pp'
+
+axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
@@ -26,6 +32,7 @@ function App() {
         <Route path="/how-this-works" element={<HowThisWorks />} />
         <Route path="/eligibility" element={<Eligibility />} />
         <Route path="/downloads" element={<Downloads />} />
+        <Route path="/new" element={<New />} />
       </Routes>
     </>
   );
