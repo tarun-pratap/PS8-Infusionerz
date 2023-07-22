@@ -60,7 +60,8 @@ const Ind_Policy_Page = () => {
 
                     {/* Navbar */}
 
-                    <div className='flex justify-evenly w-full'>
+                    <div className='flex justify-evenly w-full flex-col'>
+                    <div><Bot /></div>
                     <div>
                         <div className='mt-20 text-[1.7rem]'>                       
                             <ul className='flex justify-evenly gap-x-12'>
@@ -104,7 +105,7 @@ const Ind_Policy_Page = () => {
                         </>
                     }
                     </div>
-                        <div><Bot /></div>
+                        
                     </div>
 
             

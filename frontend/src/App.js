@@ -11,10 +11,10 @@ import HowThisWorks from "./components/Policy_Components/HowThisWorks";
 import Eligibility from "./components/Policy_Components/Eligibility";
 import Downloads from "./components/Policy_Components/Downloads";
 import New from "./components/New";
+import Ocr from "./components/Ocr";
 import axios from 'axios'
-import Pp from './components/Pp'
 
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = 'http://0.0.0.0:4000';
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -33,6 +33,7 @@ function App() {
         <Route path="/eligibility" element={<Eligibility />} />
         <Route path="/downloads" element={<Downloads />} />
         <Route path="/new" element={<New />} />
+        <Route path="/ocr" element={<Ocr />} />
       </Routes>
     </>
   );

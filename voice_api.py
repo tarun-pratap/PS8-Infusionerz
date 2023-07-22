@@ -9,7 +9,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -36,20 +36,20 @@ def speech_to_text():
     except sr.RequestError as e:
         raise HTTPException(status_code=500, detail=f"Could not request results from Google Speech Recognition service: {str(e)}")
 
-@app.post("/speak")
-def speak(prompt: str = Header(None)):
+@app.get("/speak")
+def speak(prompt: str = Header(...), rate : int = Header(...)):
     try:
         if prompt is None or prompt.strip() == "":
             raise HTTPException(status_code=422, detail="Invalid request. 'prompt' header must not be empty.")
 
-        text_to_speech(prompt)
+        text_to_speech(prompt,rate)
 
         return {"message": "Speech played successfully."}
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.post("/listen")
+@app.get("/listen")
 def listen():
     try:
         recognized_text = speech_to_text()
