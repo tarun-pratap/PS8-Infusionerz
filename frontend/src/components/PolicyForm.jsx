@@ -208,7 +208,7 @@ const PolicyForm = () => {
                                     <label className='text-[1.6rem]'>Mobile Number</label> <br />
                                     <InputGroup marginTop={'1.5rem'}>
                                         <InputLeftAddon height={'4rem'} children='+91' />
-                                        <Input autoComplete='off' value={phone} onChange={(e) => setPhone(e.target.value)} name='phone' type='number' width={'76%'} fontSize={'1.2rem'} height={'4rem'} placeholder='Enter your Phone Number...' />
+                                        <Input id='phone' autoComplete='off' value={phone} onChange={(e) => setPhone(e.target.value)} name='phone' type='number' width={'76%'} fontSize={'1.2rem'} height={'4rem'} placeholder='Enter your Phone Number...' />
                                     </InputGroup>                                                                       
                                 </div>
                                 <div className='mt-10 px-28 ml-10'>
@@ -223,19 +223,19 @@ const PolicyForm = () => {
                                     <label className='text-[1.6rem]'>Email Address</label> <br />
                                     <InputGroup marginTop={'1.5rem'}>
                                         <InputLeftElement pointerEvents='none' children='@' fontSize={'1.5rem'} marginTop={'0.8rem'}></InputLeftElement>
-                                        <Input autoComplete='off' name='email' value={email} onChange={(e) => setEmail(e.target.value)} type='email' width={'80%'} fontSize={'1.2rem'} height={'4rem'} placeholder='Enter your Email Address...'/>
+                                        <Input id='email' autoComplete='off' name='email' value={email} onChange={(e) => setEmail(e.target.value)} type='email' width={'80%'} fontSize={'1.2rem'} height={'4rem'} placeholder='Enter your Email Address...'/>
                                     </InputGroup>
                                 </div> 
                                 <div className='mt-1 px-28 ml-10'>
                                     <label className='text-[1.6rem]'>Pincode</label> <br />
                                     <InputGroup marginTop={'1.5rem'}>
                                         <InputLeftElement pointerEvents='none'><i class="bi bi-geo-alt-fill text-[1.4rem] mt-5"></i></InputLeftElement>
-                                        <Input value={pincode} onChange={(e) => setPincode(e.target.value)} autoComplete='off' name='pincode' type='number' width={'80%'} fontSize={'1.2rem'} height={'4rem'} placeholder='Enter your Pincode...' />
+                                        <Input id='pincode' value={pincode} onChange={(e) => setPincode(e.target.value)} autoComplete='off' name='pincode' type='number' width={'80%'} fontSize={'1.2rem'} height={'4rem'} placeholder='Enter your Pincode...' />
                                     </InputGroup> 
                                 </div>                         
                                 <div className='mt-10 px-28 ml-10'>
                                     <label className='text-[1.6rem]'>Address</label> <br />
-                                    <Textarea autoComplete='off' name='address' placeholder='Enter your Address...' marginTop={'1.5rem'} fontSize={'1.2rem'} width={'80%'} height={'8rem'} value={address} onChange={(e) => setAddress(e.target.value)} />
+                                    <Textarea  id='address' autoComplete='off' name='address' placeholder='Enter your Address...' marginTop={'1.5rem'} fontSize={'1.2rem'} width={'80%'} height={'8rem'} value={address} onChange={(e) => setAddress(e.target.value)} />
                                 </div>
                                 <div className='mt-10 px-28 ml-10'>
                                     <label className='text-[1.6rem]'>Education</label> <br />
@@ -249,13 +249,13 @@ const PolicyForm = () => {
                                 <div className='mt-10 px-28 ml-10'>
                                     <label className='text-[1.6rem]'>Annual Income</label> <br />
                                     <InputGroup marginTop={'1.5rem'}>
-                                        <Input autoComplete='off' name='income' type='number' width={'73%'} fontSize={'1.2rem'} height={'4rem'} placeholder='Enter your Annual Income...' value={income} onChange={(e) => setIncome(e.target.value)} />
+                                        <Input id='annual_income' autoComplete='off' name='income' type='number' width={'73%'} fontSize={'1.2rem'} height={'4rem'} placeholder='Enter your Annual Income...' value={income} onChange={(e) => setIncome(e.target.value)} />
                                         <InputRightAddon height={'4rem'} fontSize={'1.2rem'} children='(in lakhs)' value={income} onChange={(e) => setIncome(e.target.value)} />
                                     </InputGroup> 
                                 </div>               
                                 <div className='mt-10 px-28 ml-10'>
                                     <label className='text-[1.6rem]'>Occupation</label> <br />
-                                    <Input autoComplete='off' name='occupation' type='text' width={'80%'} fontSize={'1.2rem'} height={'4rem'}  marginTop={'1.5rem'} placeholder='Enter your Occupation...' value={occupation} onChange={(e) => setOccupation(e.target.value)} />
+                                    <Input id='occupation' autoComplete='off' name='occupation' type='text' width={'80%'} fontSize={'1.2rem'} height={'4rem'}  marginTop={'1.5rem'} placeholder='Enter your Occupation...' value={occupation} onChange={(e) => setOccupation(e.target.value)} />
                                 </div>
                                 </div>
                                 <div><hr className='w-full h-[0.2rem] rounded-3xl bg-zinc-200 mt-16 opacity-80' /></div>       
