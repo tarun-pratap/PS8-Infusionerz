@@ -33,4 +33,4 @@ python temp.py
 ![WhatsApp Image 2024-05-23 at 19 05 04_6a877865](https://github.com/tarun-pratap/PS8-Infusionerz/assets/114357685/8188d426-e559-4de2-8e9c-8fa2c95110d1)
 
 # video link :
-https://www.youtube.com/watch?v=YigusbqsRWg
+[https://www.youtube.com/watch?v=YigusbqsRWg](https://drive.google.com/file/d/12IyycOXRD-pSjz4w-EdhCDFaz8pf_K9t/view?usp=sharing)
